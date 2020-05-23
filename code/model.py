@@ -34,7 +34,7 @@ def get_distance(address_1, address_2, address_coordinates, metric, API_KEY='Wo4
     if metric == 'distance':
         distance = request_json['response']['route'][0]['summary']['distance']/1000
     elif metric == 'time':
-        distance = request_json['response']['route'][0]['summary']['time']/60
+        distance = request_json['response']['route'][0]['summary']['travelTime']/60
     return distance
 
 def save_distances(addresses, coordinates, metric):
@@ -43,7 +43,7 @@ def save_distances(addresses, coordinates, metric):
     for i in range(l):
         for j in range(l):
             if i != j:
-                distances_dict[(i, j)] = get_distance(i, j, coordinates)
+                distances_dict[(i, j)] = get_distance(i, j, coordinates, metric)
     return distances_dict
 
 def create_guess(addresses):
