@@ -1,0 +1,23 @@
+Instruções para rodar o Evolution Router:
+
+1ª Etapa: Abra o Terminal no diretório atual
+
+2ª Etapa: Ter o virtualenv instalado no seu computador
+> pip install virtualenv
+
+3ª Etapa: Criar o ambiente virtual nesse diretório
+> virtualenv venv
+
+4ª Etapa: Ativar o virtualenviroment do Python (precisa ter Python 3.8 instalado)
+
+Windows:
+> venv\Scripts\activate
+
+Linux e Mac:
+> source venv/bin/activate
+
+5ª Etapa: Instalar as dependências
+> pip install -r requirements.txt
+
+6ª Etapa: Iniciar o aplicativo
+> streamlit run app.py
