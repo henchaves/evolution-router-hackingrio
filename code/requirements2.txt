@@ -1,0 +1,8 @@
+numpy
+scipy
+pandas
+matplotlib
+requests
+folium
+geopy
+streamlit

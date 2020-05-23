@@ -20,7 +20,7 @@ def pipeline_model(addresses, metric):
     return map
     
 
-def get_distance(address_1, address_2, address_coordinates, metric, API_KEY='Wo4TQp6dReCezt0qVyIlSgAWTfex3lzUtcRcw0DN-uM', mode='fastest', vehicle='car', traffic='disabled'):
+def get_distance(address_1, address_2, address_coordinates, metric, API_KEY='Wo4TQp6dReCezt0qVyIlSgAWTfex3lzUtcRcw0DN-uM', mode='fastest', vehicle='car', traffic='enabled'):
     """
     Given two address, this calculates this distance between them
     """

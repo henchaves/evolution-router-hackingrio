@@ -37,9 +37,26 @@ def view_addresses():
     data = c.fetchall()
     return data
 
+def delete_address(address):
+    c.execute('DELETE FROM enderecostable WHERE endereco="{}"'.format(address))
+    conn.commit()
+
+def update_origin(address):
+    c.execute('UPDATE enderecostable SET endereco={} WHERE id=0'.format(address))
+    conn.commit()
 #MODEL Function
 def run_model(addresses, metric):
-    st.write('Carregando...')
+    time.sleep(1)
+    st.warning('Carregando...')
+    st.markdown("""
+    <h3>Legenda:</h3>
+    <ul style="list-style-type:none;">
+        <li><span style="color:black;margin-left:0;padding-left:0;">Preto</span> - Endereço de origem</li>
+        <li><span style="color:green;">Verde</span> - Primeira entrega</li>
+        <li><span style="color:red;">Vermelho</span> - Última entrega</li>
+        <li><span style="color:blue;">Azul</span> - Demais entregas</li>
+    </ul>
+    """, unsafe_allow_html=True)
     route_map = pipeline_model(addresses, metric)
     filepath = os.path.realpath('map.html')
     route_map.save(filepath)
@@ -54,8 +71,6 @@ def main():
     if choice == 'Explicação':
         #Insira a explicação do app aqui
         st.subheader("Evolution Router App")
-        st.markdown('Explicação aqui.')
-
         st.markdown("""
         <div>
             <p>O nosso projeto visa melhorar a eficiência operacional das entregas, focando nas métricas de custo operacional e tempo de entrega.</p>
@@ -64,7 +79,7 @@ def main():
             <p>Dessa forma, de forma ideal podemos unir uma comunidade juntando empresas de Rotas como Waze, empresas de Entregas como Correios, empresas de Delivery como iFood e tudo isso utilizando uma inteligência artificial que utiliza dados em tempo real.</p>
         </div>
         """, unsafe_allow_html = True)
-        #
+        
     
     elif choice == 'App':
         st.subheader("Evolution Router App")
@@ -73,20 +88,24 @@ def main():
         
         if applist == 'Cadastrar Origem':
             st.subheader('Cadastrar endereço de origem')
-            st.warning("Ao cadastrar um novo endereço de origem, os endereços de entrega em sua rota serão excluídos.")
-            origem = st.text_input("Insira o endereço de origem.")
+            st.warning("Ao cadastrar um novo endereço de origem, o antigo será atualizado.")
+            origem = st.text_input("Insira o endereço de origem:")
 
             if st.button("Adicionar origem"):
-                drop_table()
+                #drop_table()
                 create_table()
-                create_data(origem)
+                if len(view_origin()) > 0:
+                    update_origin(origem)
+                else:
+                    create_data(origem)
+                    
                 st.success('Origem adicionada com sucesso.')
 
         elif applist == 'Cadastrar Entrega':
             st.subheader('Cadastrar endereço de entrega')
 
-            entrega = st.text_input("Insira o endereço de entrega.")
-            if st.button("Adicionar endereço"):
+            entrega = st.text_input("Insira o endereço de entrega:")
+            if st.button("Adicionar entrega"):
                 create_data(entrega)
                 st.success('Endereço adicionado com sucesso.')
                 time.sleep(2)
@@ -100,7 +119,16 @@ def main():
                 st.dataframe(pd.DataFrame({'origem':view_origin()[0]}))
             
             elif info_choice == 'entregas':
-                st.dataframe(pd.DataFrame({'entregas': [i[0] for i in view_addresses()]}))
+                all_addresses = [i[0] for i in view_addresses()]
+                st.dataframe(pd.DataFrame({'entregas': all_addresses}))
+                address_to_del = st.selectbox("Excluir um endereço:", all_addresses)
+                if st.button("Excluir"):
+                    delete_address(address_to_del)
+                    st.warning("Endereço excluído: '{}'".format(address_to_del))
+                if st.button("Excluir todos"):
+                    for i in all_addresses:
+                        delete_address(i)
+                    st.warning("Todos os endereços foram excluídos.")
    
 
         elif applist == 'Gerar Rota':
