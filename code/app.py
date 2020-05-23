@@ -55,6 +55,15 @@ def main():
         #Insira a explicação do app aqui
         st.subheader("Evolution Router App")
         st.markdown('Explicação aqui.')
+
+        st.markdown("""
+        <div>
+            <p>O nosso projeto visa melhorar a eficiência operacional das entregas, focando nas métricas de custo operacional e tempo de entrega.</p>
+            <p>Usamos inteligência artificial para definir as rotas mais rápidas entre os pontos, levando em conta o tráfego em tempo real - o que pode diminuir aglomeração em tempos de COVID-19 e diminuir o tempo de entrega - e depois otimizamos a rota baseado na menor distância total percorrida por essas rotas mais rápidas - diminuindo assim os custos por combustível e manutenção de veículos.</p>
+            <p>A otimização também pode ser flexibilizada tanto por Entrega Mais Rápida quanto Entrega Mais Curta, podendo ser optada pela preferência do cliente.</p>
+            <p>Dessa forma, de forma ideal podemos unir uma comunidade juntando empresas de Rotas como Waze, empresas de Entregas como Correios, empresas de Delivery como iFood e tudo isso utilizando uma inteligência artificial que utiliza dados em tempo real.</p>
+        </div>
+        """, unsafe_allow_html = True)
         #
     
     elif choice == 'App':
@@ -88,10 +97,10 @@ def main():
             info_choice = st.radio("Visualizar endereço(s): ", ("origem", "entregas"))
 
             if info_choice == 'origem':
-                st.write([i[0] for i in view_origin()])
+                st.dataframe(pd.DataFrame({'origem':view_origin()[0]}))
             
             elif info_choice == 'entregas':
-                st.write([i[0] for i in view_addresses()])
+                st.dataframe(pd.DataFrame({'entregas': [i[0] for i in view_addresses()]}))
    
 
         elif applist == 'Gerar Rota':
