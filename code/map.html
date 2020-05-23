@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_74a5fcc1ab4b4baaa3c31ad4316eda58 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <link rel="stylesheet" href="https://rawcdn.githack.com/marslan390/BeautifyMarker/master/leaflet-beautify-marker-icon.css"/>
+    <script src="https://rawcdn.githack.com/marslan390/BeautifyMarker/master/leaflet-beautify-marker-icon.js"></script>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_74a5fcc1ab4b4baaa3c31ad4316eda58" ></div>
+        
+</body>
+<script>    
+    
+            var map_74a5fcc1ab4b4baaa3c31ad4316eda58 = L.map(
+                "map_74a5fcc1ab4b4baaa3c31ad4316eda58",
+                {
+                    center: [-22.9110137, -43.2093727],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9d6907d56c8f45de8a359e1faeb1ad2b = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_74a5fcc1ab4b4baaa3c31ad4316eda58);
+        
+    
+            var marker_4c8b7ba527d64c1598347f5b98edade5 = L.marker(
+                [-22.868732, -43.4318472],
+                {}
+            ).addTo(map_74a5fcc1ab4b4baaa3c31ad4316eda58);
+        
+    
+            var beautify_icon_e65d4123edac49aab27abb3eea47accc = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#000000", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin-top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 0, "textColor": "#000000"}
+            )
+            marker_4c8b7ba527d64c1598347f5b98edade5.setIcon(beautify_icon_e65d4123edac49aab27abb3eea47accc);
+        
+    
+            marker_4c8b7ba527d64c1598347f5b98edade5.bindTooltip(
+                `<div>
+                     Estrada da Água Branca, 3196, Realengo, Rio de Janeiro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a2098442ccc446a9af36edaf3aeb22e6 = L.marker(
+                [-22.8301327, -43.3221256],
+                {}
+            ).addTo(map_74a5fcc1ab4b4baaa3c31ad4316eda58);
+        
+    
+            var beautify_icon_7c3c721845884550a21d7faa8d1ea46e = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#2ca02c", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin-top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 1, "textColor": "#000000"}
+            )
+            marker_a2098442ccc446a9af36edaf3aeb22e6.setIcon(beautify_icon_7c3c721845884550a21d7faa8d1ea46e);
+        
+    
+            marker_a2098442ccc446a9af36edaf3aeb22e6.bindTooltip(
+                `<div>
+                     Rua Professor Sá Nunes, 65, Rio de Janeiro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_657ff87f9b9f413d8e46a549ab3e1d5c = L.marker(
+                [-22.9122584, -43.1860435],
+                {}
+            ).addTo(map_74a5fcc1ab4b4baaa3c31ad4316eda58);
+        
+    
+            var beautify_icon_df4521f25c54420e81c94f4fd630334d = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#17becf", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin-top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 2, "textColor": "#000000"}
+            )
+            marker_657ff87f9b9f413d8e46a549ab3e1d5c.setIcon(beautify_icon_df4521f25c54420e81c94f4fd630334d);
+        
+    
+            marker_657ff87f9b9f413d8e46a549ab3e1d5c.bindTooltip(
+                `<div>
+                     Avenida Mem de Sá, 174, Rio de Janeiro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f4677e28f91e4899bfb7f1a797fed783 = L.marker(
+                [-22.9593839, -43.2060569],
+                {}
+            ).addTo(map_74a5fcc1ab4b4baaa3c31ad4316eda58);
+        
+    
+            var beautify_icon_3bac16442def419485c86b1cb6e405cc = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#17becf", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin-top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 3, "textColor": "#000000"}
+            )
+            marker_f4677e28f91e4899bfb7f1a797fed783.setIcon(beautify_icon_3bac16442def419485c86b1cb6e405cc);
+        
+    
+            marker_f4677e28f91e4899bfb7f1a797fed783.bindTooltip(
+                `<div>
+                     Rua Getúlio das Neves, 31, Rio de Janeiro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1fa6201b83f84a45a31b83b8f9430b82 = L.marker(
+                [-23.02091390403176, -43.46957355236981],
+                {}
+            ).addTo(map_74a5fcc1ab4b4baaa3c31ad4316eda58);
+        
+    
+            var beautify_icon_1d0bb441cfe34431b2f33d3b56af2b66 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#d62728", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin-top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 4, "textColor": "#000000"}
+            )
+            marker_1fa6201b83f84a45a31b83b8f9430b82.setIcon(beautify_icon_1d0bb441cfe34431b2f33d3b56af2b66);
+        
+    
+            marker_1fa6201b83f84a45a31b83b8f9430b82.bindTooltip(
+                `<div>
+                     Rua Joaquim Moreira Neves, 131, Rio de Janeiro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
