@@ -18,8 +18,8 @@ def create_table():
     c.execute('CREATE TABLE IF NOT EXISTS enderecostable (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\
                                                           endereco TEXT)')
 
-def create_data(address):
-    c.execute('INSERT INTO enderecostable(id, endereco) VALUES (?, ?)',(None, address))
+def create_data(address, id = None):
+    c.execute('INSERT INTO enderecostable(id, endereco) VALUES (?, ?)',(id, address))
     conn.commit()
 
 def view_all_rows():
@@ -37,17 +37,26 @@ def view_addresses():
     data = c.fetchall()
     return data
 
+def delete_origin():
+    c.execute('DELETE FROM enderecostable WHERE id=1')
+    conn.commit()
+
 def delete_address(address):
     c.execute('DELETE FROM enderecostable WHERE endereco="{}"'.format(address))
     conn.commit()
 
-def update_origin(address):
-    c.execute('UPDATE enderecostable SET endereco={} WHERE id=0'.format(address))
-    conn.commit()
+def get_address_by_id(id):
+    c.execute('SELECT * FROM enderecostable WHERE id = {}'.format(id))
+    data = c.fetchall()
+    return data
+
+# def update_origin(address):
+#     c.execute('UPDATE enderecostable SET endereco="{}" WHERE id=1'.format(address))
+#     conn.commit()
 #MODEL Function
 def run_model(addresses, metric):
     time.sleep(1)
-    st.warning('Carregando...')
+    st.success('Carregando...')
     st.markdown("""
     <h3>Legenda:</h3>
     <ul style="list-style-type:none;">
@@ -94,8 +103,9 @@ def main():
             if st.button("Adicionar origem"):
                 #drop_table()
                 create_table()
-                if len(view_origin()) > 0:
-                    update_origin(origem)
+                if get_address_by_id(1):
+                    delete_origin()
+                    create_data(origem, id=1)
                 else:
                     create_data(origem)
                     
