@@ -2,9 +2,9 @@ import streamlit as st
 import pandas as pd 
 import sqlite3
 import time
-from model import pipeline_model
 import os
 import webbrowser
+from model import pipeline_model
 
 #DB
 conn = sqlite3.connect('enderecos.db')
@@ -38,18 +38,12 @@ def view_addresses():
     return data
 
 #MODEL Function
-def run_model(addresses):
+def run_model(addresses, metric):
     st.write('Carregando...')
-    route_map = pipeline_model(addresses)
-    #st.markdown(route_map.get_root().render, unsafe_allow_html=True)
-    #C:/Users/T-Gamer/Desktop/hackingrio/code/map.html"
-    #st.markdown('<iframe width="800px" height="900px" src="C:/Users/T-Gamer/Desktop/hackingrio/code/map.html"></iframe>', unsafe_allow_html=True)
-    
-    #filepath = 'C:/Users/T-Gamer/Desktop/hackingrio/code/map.html'
+    route_map = pipeline_model(addresses, metric)
     filepath = os.path.realpath('map.html')
     route_map.save(filepath)
     webbrowser.open('file://' + filepath)
-    #st.markdown('<iframe width="560" height="315" src="{}\map.html"></iframe>'.format(x), unsafe_allow_html=True)
 
 
 def main():
@@ -102,11 +96,18 @@ def main():
 
         elif applist == 'Gerar Rota':
             st.subheader('Gere sua rota otimizada baseada nos endereços registrados')
-            if st.button("Gerar rota"):
+            metric_radio = st.radio("Seleciona a métrica de otimização: ", ("distância total", "tempo total"))
+            metric = NotImplementedError
+            if metric_radio == 'distância total':
+                    metric = 'distance'
+            elif metric_radio == 'tempo total':
+                    metric = 'time'
+            if st.button("Gerar rota") and metric is not None:
                 result = view_all_rows()
                 clean_db = pd.DataFrame(result, columns=['Id', 'Enderecos'])
                 enderecos = clean_db['Enderecos']
-                run_model(enderecos)
+                
+                run_model(enderecos, metric)
 
 
 

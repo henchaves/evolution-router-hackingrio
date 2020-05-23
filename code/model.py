@@ -7,12 +7,12 @@ from copy import copy
 import folium
 from folium.plugins import BeautifyIcon
 
-def pipeline_model(addresses):
+def pipeline_model(addresses, metric):
     geolocator = Nominatim(user_agent="rickchaves")
     address_names = addresses 
 
     address_coordinates = {i:[geolocator.geocode(k).latitude, geolocator.geocode(k).longitude] for i,k in enumerate(address_names)}
-    address_distances_dict = save_distances(address_names, address_coordinates)
+    address_distances_dict = save_distances(address_names, address_coordinates, metric)
     current_generation = create_generation(list(address_coordinates.keys()), address_distances_dict, population=500)
     _ , best_guess = evolve_to_solve(current_generation, 100, 150, 70, 0.5, 3, 5, address_distances_dict, verbose=True)
     map = plot_map(geolocator, best_guess, address_coordinates, address_names)
@@ -20,7 +20,7 @@ def pipeline_model(addresses):
     return map
     
 
-def get_distance(address_1, address_2, address_coordinates, API_KEY='Wo4TQp6dReCezt0qVyIlSgAWTfex3lzUtcRcw0DN-uM', mode='fastest', vehicle='car', traffic='disabled'):
+def get_distance(address_1, address_2, address_coordinates, metric, API_KEY='Wo4TQp6dReCezt0qVyIlSgAWTfex3lzUtcRcw0DN-uM', mode='fastest', vehicle='car', traffic='disabled'):
     """
     Given two address, this calculates this distance between them
     """
@@ -31,10 +31,13 @@ def get_distance(address_1, address_2, address_coordinates, API_KEY='Wo4TQp6dReC
     r = requests.get(request_template)
     request_json = json.loads(r.text)
     
-    distance = request_json['response']['route'][0]['summary']['distance']/1000
+    if metric == 'distance':
+        distance = request_json['response']['route'][0]['summary']['distance']/1000
+    elif metric == 'time':
+        distance = request_json['response']['route'][0]['summary']['time']/60
     return distance
 
-def save_distances(addresses, coordinates):
+def save_distances(addresses, coordinates, metric):
     distances_dict = {}
     l = len(addresses)
     for i in range(l):
