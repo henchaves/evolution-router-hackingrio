@@ -1,4 +1,4 @@
-Instruções:
+Instruções para rodar o Evolution Router:
 
 1º Etapa: Abra o Terminal no diretório atual
 
