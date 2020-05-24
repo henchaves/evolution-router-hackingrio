@@ -63,10 +63,6 @@ def get_address_by_id(id):
     data = c.fetchall()
     return data
 
-# def update_origin(address):
-#     c.execute('UPDATE enderecostable SET endereco="{}" WHERE id=1'.format(address))
-#     conn.commit()
-
 
 #MODEL Function
 def run_model(addresses, shops_names, metric):
@@ -105,9 +101,10 @@ def main():
     if choice == 'Explicação':
         st.image(['./img/002minerva_color_hor.png', './img/5eb0e201e2149.jpg'], width=200)
         #Insira a explicação do app aqui
-        st.subheader("Evolution Router App")
+        st.header("Evolution Router App")
         st.markdown("""
         <div>
+            <h4>O EVOLUTION ROUTER É UM WEB APP QUE VISA ROTEIRIZAR E OTIMIZAR O SISTEMA DE ENTREGAS DE EMPRESAS A PARTIR DE UM POOL SYSTEM</h4>
             <p>O nosso projeto visa melhorar a eficiência operacional das entregas, focando nas métricas de custo operacional e tempo de entrega.</p>
             <p>Usamos inteligência artificial para definir as rotas mais rápidas entre os pontos, levando em conta o tráfego em tempo real - o que pode diminuir aglomeração em tempos de COVID-19 e diminuir o tempo de entrega - e depois otimizamos a rota baseado na menor distância total percorrida por essas rotas mais rápidas - diminuindo assim os custos por combustível e manutenção de veículos.</p>
             <p>A otimização também pode ser flexibilizada tanto por Entrega Mais Rápida quanto Entrega Mais Curta, podendo ser optada pela preferência do cliente.</p>
@@ -117,7 +114,7 @@ def main():
         
     
     elif choice == 'App':
-        st.subheader("Evolution Router App")
+        st.header("Evolution Router App")
         app_sections = ['Cadastrar Origem', 'Cadastrar Loja', 'Cadastrar Entrega', 'Gerenciar Endereços', 'Gerar Rota']
         applist = st.sidebar.selectbox("Funções do App", app_sections)
         

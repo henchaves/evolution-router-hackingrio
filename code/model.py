@@ -16,7 +16,7 @@ def pipeline_model(addresses, shops_names, n_shops, metric):
     metric -> métrica para calcular o resultado (distancia ou tempo)
     
     '''
-    geolocator = Nominatim(user_agent="rickchaves")
+    geolocator = Nominatim(user_agent="rickchavesmm")
 
     coordinates = {i:[geolocator.geocode(k).latitude, geolocator.geocode(k).longitude] for i,k in enumerate(addresses)}
 
@@ -28,7 +28,7 @@ def pipeline_model(addresses, shops_names, n_shops, metric):
     
     current_generation = create_generation(coordinates_keys, shop_dict, population=500)
     
-    _ , best_guess = evolve_to_solve(current_generation, metric_results, 100, 150, 70, 0.05, 3, 5, verbose=False)
+    _ , best_guess = evolve_to_solve(current_generation, metric_results, 100, 150, 70, 0.01, 3, 5, verbose=False)
     
     m = plot_map(geolocator, best_guess[:-1], coordinates, addresses, shops_names, n_shops)
     m.save('map.html')
