@@ -104,12 +104,21 @@ def main():
         st.header("Evolution Router App")
         st.markdown("""
         <div>
-            <h4>O EVOLUTION ROUTER É UM WEB APP QUE VISA ROTEIRIZAR E OTIMIZAR O SISTEMA DE ENTREGAS DE EMPRESAS A PARTIR DE UM POOL SYSTEM</h4>
-            <p>O nosso projeto visa melhorar a eficiência operacional das entregas, focando nas métricas de custo operacional e tempo de entrega.</p>
-            <p>Usamos inteligência artificial para definir as rotas mais rápidas entre os pontos, levando em conta o tráfego em tempo real - o que pode diminuir aglomeração em tempos de COVID-19 e diminuir o tempo de entrega - e depois otimizamos a rota baseado na menor distância total percorrida por essas rotas mais rápidas - diminuindo assim os custos por combustível e manutenção de veículos.</p>
-            <p>A otimização também pode ser flexibilizada tanto por Entrega Mais Rápida quanto Entrega Mais Curta, podendo ser optada pela preferência do cliente.</p>
-            <p>Dessa forma, de forma ideal podemos unir uma comunidade juntando empresas de Rotas como Waze, empresas de Entregas como Correios, empresas de Delivery como iFood e tudo isso utilizando uma inteligência artificial que utiliza dados em tempo real.</p>
-        </div>
+            <h3>Apresentação</h3>
+            <p>O  Evolution Router é um web app que visa roteirizar e otimizar o sistema de entregas de empresas a partir de um pool system. Nesse sentido, buscamos ajudar as micro e pequenas empresas, visto que é um setor que encontrou problemas de adaptação de funcionamento com o cenário da pandemia.</p>
+            <h3>Produto</h3>
+            <p>O projeto visa melhorar a eficiência operacional das entregas, focando nas métricas de custo operacional e tempo de entrega. Usamos inteligência artificial para definir as rotas mais rápidas entre os pontos, levando em conta o tráfego em tempo real - o que pode diminuir aglomeração em tempos de COVID-19 e diminuir o tempo de entrega - e depois otimizamos a rota baseado na menor distância total percorrida por essas rotas mais rápidas - diminuindo assim os custos por combustível e manutenção de veículos. A otimização também pode ser flexibilizada tanto por Entrega Mais Rápida quanto Entrega Mais Curta, podendo ser optada pela preferência do cliente.</p>
+            <p>As entregas são feitas por um pool system, no qual o entregador retira primeiramente os itens nas empresas e em seguida segue em direção aos clientes,  se adequando a melhor rota para ambas as situações. Esse sistema permite que haja redução de custos e melhore a eficiência o operacional de entregas.</p>
+            <p>O produto tem o intuito de ajudar as microempresas que representam um total de 99% do setor privado, responsável por boa parte da movimentação da  economia brasileira e a maior geração de empregos, que no cenário atual está sendo muito afetado.</p>
+            <h3>Informações adicionais</h3>
+            <p>Nesse projeto, foi utilizada a linguagem de programação Python. A sua facilidade de escrever, além da vasta quantidade de bibliotecas fornecidas pela comunidade, faz com que o Python seja uma ferramenta poderosa para integrar as tecnologias utilizadas. Dois frameworks dessa linguagem foram usados para facilitar o desenvolvimento da aplicação: Streamlit e Flask.</p>
+            <p>A API de geolocalização utilizada foi a Nominatim, fornecida pela biblioteca geopy, no Python. Com ela, é possível conseguir resultados relativamente precisos de latitude e longitude, apenas digitando o endereço desejado.</p>
+            <p>Já a API de tráfego em tempo real utilizada, foi a fornecida pela <a href="https://www.here.com/" target="_blank">HERE</a>. Com ela, é possível realizar requisições REST de forma gratuita e ainda fornece diversos parâmetros de busca.<p>
+            <p>O algoritmo de inteligência artificial utilizado foi o algoritmo genético. Ele foi adaptado desse <a href="https://github.com/ZWMiller/PythonProjects/blob/master/genetic_algorithms/evolutionary_algorithm_traveling_salesman.ipynb" target="_blank">repositório GitHub</a>. A cada população gerada pelo algoritmo, mais refinado é o resultado.</p>
+            <p>Por último, o mapa gerado é resultado da utilização da biblioteca Folium. Com ela, é possível adicionar popups, tooltips e markers, deixando o mapa mais interativo.</p>
+            <p><a href="https://youtu.be/K7dWKXp45Xg" target="_blank">Vídeo de demonstração web app</a></p>
+            <p>Contato técnico: <a href="mailto:henriquechavesmm@gmail.com">henriquechavesmm@gmail.com</a></p>
+
         """, unsafe_allow_html = True)
         
     
