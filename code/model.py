@@ -7,6 +7,7 @@ from copy import copy
 import folium
 from folium.plugins import BeautifyIcon
 
+#OK
 def pipeline_model(addresses, shops_names, n_shops, metric):
     '''
     addresses -> todos os endereços (origem, lojas, entregas)
@@ -15,15 +16,38 @@ def pipeline_model(addresses, shops_names, n_shops, metric):
     metric -> métrica para calcular o resultado (distancia ou tempo)
     
     '''
-    geolocator = Nominatim(user_agent='rickchaves')
+    geolocator = Nominatim(user_agent="rickchaves")
+
     coordinates = {i:[geolocator.geocode(k).latitude, geolocator.geocode(k).longitude] for i,k in enumerate(addresses)}
+
+    coordinates_keys = list(coordinates.keys())
+
+    shop_dict = create_shop_dict(shops_names, n_shops)
+    
     metric_results = save_distances(addresses, coordinates, metric)
-    current_generation = create_generation(list(coordinates.keys()), n_shops, population=500)
-    _ , best_guess = evolve_to_solve(current_generation, metric_results, 100, 150, 70, 0.5, 3, 5, verbose=True)
-    m = plot_map(geolocator, best_guess, coordinates, addresses, shops_names, n_shops)
-    #map.save('map.html')
+    
+    current_generation = create_generation(coordinates_keys, shop_dict, population=500)
+    
+    _ , best_guess = evolve_to_solve(current_generation, metric_results, 100, 150, 70, 0.05, 3, 5, verbose=False)
+    
+    m = plot_map(geolocator, best_guess[:-1], coordinates, addresses, shops_names, n_shops)
+    m.save('map.html')
     return m
 
+#OK
+def create_shop_dict(shops_names, n_shops):
+    list_shops = shops_names[:n_shops]
+    list_deliveries = shops_names[n_shops:]
+    shop_dict = {}
+
+    for i,v in enumerate(list_shops):
+        shop_dict[i+1] = []
+        for j,w in enumerate(list_deliveries):
+            if v == w:
+                shop_dict[i+1].append(j+n_shops+1)
+    return shop_dict
+
+#OK
 def get_distance(address_1, address_2, coordinates, metric, API_KEY='Wo4TQp6dReCezt0qVyIlSgAWTfex3lzUtcRcw0DN-uM', mode='fastest', vehicle='car', traffic='enabled'):
     """
     Given two address, this calculates the selected metric between then
@@ -41,6 +65,7 @@ def get_distance(address_1, address_2, coordinates, metric, API_KEY='Wo4TQp6dReC
         result = request_json['response']['route'][0]['summary']['travelTime']/60
     return result
 
+#OK
 def save_distances(addresses, coordinates, metric):
     metric_results = {}
     l = len(addresses)
@@ -50,33 +75,7 @@ def save_distances(addresses, coordinates, metric):
                 metric_results[(i, j)] = get_distance(i, j, coordinates, metric)
     return metric_results
 
-def create_guess(coordinates_keys, n_shops):
-    """
-    Creates a possible route between all adresses, returning to the original.
-    Input: List of Adr
-    """
-    guess = copy(coordinates_keys)
-    np.random.shuffle(guess)
-
-    i = 0
-    while i < n_shops:
-        i += 1
-        if guess[i] not in range(1, n_shops + 1) or guess[0] != 0:
-            np.random.shuffle(guess)
-            i = 0
-    #guess.append(guess[0])
-    return list(guess)
-
-def create_generation(coordinates_keys, n_shops, population=100):
-    """
-    Makes a list of guessed adress orders given a list of address IDs.
-    Input:
-    adresses: list of address ids
-    population: how many guesses to make
-    """
-    generation = [create_guess(coordinates_keys, n_shops) for _ in range(population)]
-    return generation
-
+#OK
 def distance_between_address(address_1, address_2, metric_results, API_KEY='Wo4TQp6dReCezt0qVyIlSgAWTfex3lzUtcRcw0DN-uM', mode='fastest', vehicle='car', traffic='disabled'):
     """
     Given two address, this calculates this distance between them
@@ -84,6 +83,49 @@ def distance_between_address(address_1, address_2, metric_results, API_KEY='Wo4T
     
     return metric_results[(address_1, address_2)]
 
+#OK
+def create_guess(coordinates_keys, shop_dict):
+    """
+    Creates a possible route between all adresses, returning to the original.
+    Input: List of Adr
+    """
+    guess = copy(coordinates_keys)
+    np.random.shuffle(guess)
+
+    while True:
+        if guess[0] != 0 or check_key_and_values(guess[1:], shop_dict) == False:
+            np.random.shuffle(guess)
+        else:
+            break
+    guess.append(guess[0])
+    return list(guess)
+
+#OK
+def check_key_and_values(lista, dicionario):
+    """
+        Dada uma lista, e um dicionario, retorne True se as keys do dicionario vem antes de algum elemento
+        
+    """
+    for id_key, id_values in dicionario.items():
+        index_key = lista.index(id_key)
+        for id_value in id_values:
+            index_value = lista.index(id_value)
+            if index_key > index_value:
+                return False
+    return True
+
+#OK
+def create_generation(coordinates_keys, shop_dict, population=100):
+    """
+    Makes a list of guessed adress orders given a list of address IDs.
+    Input:
+    adresses: list of address ids
+    population: how many guesses to make
+    """
+    generation = [create_guess(coordinates_keys, shop_dict) for _ in range(population)]
+    return generation
+
+#OK
 def fitness_score(guess, metric_results):
     """
     Loops through the adresses in the guesses order and calculates
@@ -91,10 +133,13 @@ def fitness_score(guess, metric_results):
     Lower is better.
     """
     score = 0
-    for ix, address_id in enumerate(guess[:-1]):
+    for ix, address_id in enumerate(guess[:-2]):
+    #Editado aqui
+    #for ix, address_id in enumerate(guess[:-1]):
         score += distance_between_address(address_id, guess[ix+1], metric_results)
     return score
 
+#OK
 def check_fitness(guesses, metric_results):
     """
     Goes through every guess and calculates the fitness score. 
@@ -106,6 +151,7 @@ def check_fitness(guesses, metric_results):
     
     return fitness_indicator
 
+#OK
 def get_breeders_from_generation(guesses, metric_results, take_best_N=10, take_random_N=5, verbose=False, mutation_rate=0.1):
     """
     This sets up the breeding group for the next generation. You have
@@ -125,7 +171,8 @@ def get_breeders_from_generation(guesses, metric_results, take_best_N=10, take_r
     
     # Second, get some random ones for genetic diversity
     for _ in range(take_random_N):
-        ix = np.random.randint(len(guesses))
+        #ix = np.random.randint(len(guesses))
+        ix = np.random.randint(len(guesses)-1)
         new_generation.append(guesses[ix])
         
     # No mutations here since the order really matters.
@@ -152,7 +199,8 @@ def make_child(parent1, parent2):
                 if gene2 not in child:
                     child[ix] = gene2
                     break
-    #child[-1] = child[0]
+    
+    child[-1] = child[0]
     return child
 
 def make_children(old_generation, children_per_couple=1):
@@ -193,9 +241,9 @@ def evolve_to_solve(current_generation, metric_results, max_generations, take_be
     fitness_tracking = []
     for i in range(max_generations):
         if verbose and not i % print_every_n_generations and i > 0:
-            #print("Generation %i: "%i, end='')
-            #print(len(current_generation))
-            #print("Current Best Score: ", fitness_tracking[-1])
+            print("Generation %i: "%i, end='')
+            print(len(current_generation))
+            print("Current Best Score: ", fitness_tracking[-1])
             is_verbose = True
         else:
             is_verbose = False
@@ -206,10 +254,10 @@ def evolve_to_solve(current_generation, metric_results, max_generations, take_be
         current_generation = make_children(breeders, children_per_couple=children_per_couple)
     return fitness_tracking, best_guess
 
-
+#OK
 def plot_map(geolocator, best_guess, coordinates, addresses, shops_names, n_shops):
-    location = geolocator.geocode("Rio de Janeiro, RJ, Brazil")
-    m = folium.Map(location = [location.latitude, location.longitude], zoom_start = 11)
+    #location = geolocator.geocode("Rio de Janeiro, RJ, Brazil")
+    m = folium.Map(location = [-22.9385, -43.4060], zoom_start = 11)
     
     for ix,i in enumerate(best_guess):
         popup = 'None'
@@ -218,7 +266,7 @@ def plot_map(geolocator, best_guess, coordinates, addresses, shops_names, n_shop
         if ix == 0:
             popup = folium.Popup('Origem')
             color ='#000000'
-        elif ix > 0 and ix <= n_shops:
+        elif i > 0 and i <= n_shops:
             popup = folium.Popup('{}a Parada<br>Abastecimento na Loja {}'.format(ix, shops_names[i-1]), max_width=200)
             color = '#2ca02c'
         else:
@@ -239,4 +287,3 @@ def plot_map(geolocator, best_guess, coordinates, addresses, shops_names, n_shop
         icon=icon_number).add_to(m)
         
     return m
-

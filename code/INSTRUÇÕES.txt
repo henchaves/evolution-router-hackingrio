@@ -25,3 +25,9 @@ Linux e Mac:
 
 6ª Etapa: Iniciar o aplicativo
 > streamlit run app.py
+
+
+7ª Etapa: Minimize o cmd e repita as etapas 1, 2 e 4
+
+8ª Etapa: Iniciar o servidor que gera o mapa
+> python flask_app.py

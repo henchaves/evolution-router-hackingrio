@@ -23,7 +23,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_53677cf0ec984b089723173afbd4664c {
+                #map_66c170a54deb4086b15bffa8a3dc1a42 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -37,15 +37,15 @@
 </head>
 <body>    
     
-            <div class="folium-map" id="map_53677cf0ec984b089723173afbd4664c" ></div>
+            <div class="folium-map" id="map_66c170a54deb4086b15bffa8a3dc1a42" ></div>
         
 </body>
 <script>    
     
-            var map_53677cf0ec984b089723173afbd4664c = L.map(
-                "map_53677cf0ec984b089723173afbd4664c",
+            var map_66c170a54deb4086b15bffa8a3dc1a42 = L.map(
+                "map_66c170a54deb4086b15bffa8a3dc1a42",
                 {
-                    center: [-22.9110137, -43.2093727],
+                    center: [-22.9385, -43.406],
                     crs: L.CRS.EPSG3857,
                     zoom: 11,
                     zoomControl: true,
@@ -57,38 +57,71 @@
 
         
     
-            var tile_layer_529b4c1efc974ec6867dab162d6868e4 = L.tileLayer(
+            var tile_layer_8ecd23eba62f466580b673579dc221df = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_53677cf0ec984b089723173afbd4664c);
+            ).addTo(map_66c170a54deb4086b15bffa8a3dc1a42);
         
     
-            var marker_b0a3a179878c4f089667db5636df7ef4 = L.marker(
-                [-22.8682014, -43.4438566],
+            var marker_52aa958557b14908a08492e780eceeb6 = L.marker(
+                [-22.868032149999998, -43.52345993733546],
                 {}
-            ).addTo(map_53677cf0ec984b089723173afbd4664c);
+            ).addTo(map_66c170a54deb4086b15bffa8a3dc1a42);
         
     
-            var beautify_icon_3b4cd6d9107e410f8057fcd3cb0f2298 = new L.BeautifyIcon.icon(
+            var beautify_icon_ca17980a356c411e98ef7ba578cf7c4a = new L.BeautifyIcon.icon(
                 {"backgroundColor": "#FFF", "borderColor": "#000000", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 0, "textColor": "#000000"}
             )
-            marker_b0a3a179878c4f089667db5636df7ef4.setIcon(beautify_icon_3b4cd6d9107e410f8057fcd3cb0f2298);
+            marker_52aa958557b14908a08492e780eceeb6.setIcon(beautify_icon_ca17980a356c411e98ef7ba578cf7c4a);
         
     
-        var popup_8bdd4d42248243e49e6b341ce62ffa11 = L.popup({"maxWidth": "100%"});
+        var popup_703cbe27a88c47a4be177d5d05710fe3 = L.popup({"maxWidth": "100%"});
 
         
-            var html_ee8af8b5f156400aacb937b79fc58e6b = $(`<div id="html_ee8af8b5f156400aacb937b79fc58e6b" style="width: 100.0%; height: 100.0%;">Origem</div>`)[0];
-            popup_8bdd4d42248243e49e6b341ce62ffa11.setContent(html_ee8af8b5f156400aacb937b79fc58e6b);
+            var html_a335c4053c1745b2ad621fb915cc990e = $(`<div id="html_a335c4053c1745b2ad621fb915cc990e" style="width: 100.0%; height: 100.0%;">Origem</div>`)[0];
+            popup_703cbe27a88c47a4be177d5d05710fe3.setContent(html_a335c4053c1745b2ad621fb915cc990e);
         
 
-        marker_b0a3a179878c4f089667db5636df7ef4.bindPopup(popup_8bdd4d42248243e49e6b341ce62ffa11)
+        marker_52aa958557b14908a08492e780eceeb6.bindPopup(popup_703cbe27a88c47a4be177d5d05710fe3)
         ;
 
         
     
     
-            marker_b0a3a179878c4f089667db5636df7ef4.bindTooltip(
+            marker_52aa958557b14908a08492e780eceeb6.bindTooltip(
+                `<div>
+                     Estrada do Lameirão, Rio de Janeiro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_66333fd4b6cd48e9b1ba375febe9812e = L.marker(
+                [-22.8682014, -43.4438566],
+                {}
+            ).addTo(map_66c170a54deb4086b15bffa8a3dc1a42);
+        
+    
+            var beautify_icon_49902a19306d4259a1b6af13e7ba2fb7 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#2ca02c", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 1, "textColor": "#000000"}
+            )
+            marker_66333fd4b6cd48e9b1ba375febe9812e.setIcon(beautify_icon_49902a19306d4259a1b6af13e7ba2fb7);
+        
+    
+        var popup_da39d94e08834017be499aaec6f3637a = L.popup({"maxWidth": 200});
+
+        
+            var html_11f328393e5249358f056369fdef65f8 = $(`<div id="html_11f328393e5249358f056369fdef65f8" style="width: 100.0%; height: 100.0%;">1a Parada<br>Abastecimento na Loja Realengo</div>`)[0];
+            popup_da39d94e08834017be499aaec6f3637a.setContent(html_11f328393e5249358f056369fdef65f8);
+        
+
+        marker_66333fd4b6cd48e9b1ba375febe9812e.bindPopup(popup_da39d94e08834017be499aaec6f3637a)
+        ;
+
+        
+    
+    
+            marker_66333fd4b6cd48e9b1ba375febe9812e.bindTooltip(
                 `<div>
                      Estrada da Água Branca, 3196, Rio de Janeiro
                  </div>`,
@@ -96,32 +129,98 @@
             );
         
     
-            var marker_1b02909c14bc4b5882d3f0b081e4662f = L.marker(
-                [-22.9202807, -43.3792182],
+            var marker_b2a57c945c914f7b9a965047a34033ee = L.marker(
+                [-22.8760041, -43.4560716],
                 {}
-            ).addTo(map_53677cf0ec984b089723173afbd4664c);
+            ).addTo(map_66c170a54deb4086b15bffa8a3dc1a42);
         
     
-            var beautify_icon_4917f4b46c8b401daa19d2a8e7726f9f = new L.BeautifyIcon.icon(
-                {"backgroundColor": "#FFF", "borderColor": "#2ca02c", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 1, "textColor": "#000000"}
+            var beautify_icon_7effe9a8f121420788c336802b6f35ca = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#BA3CC2", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 2, "textColor": "#000000"}
             )
-            marker_1b02909c14bc4b5882d3f0b081e4662f.setIcon(beautify_icon_4917f4b46c8b401daa19d2a8e7726f9f);
+            marker_b2a57c945c914f7b9a965047a34033ee.setIcon(beautify_icon_7effe9a8f121420788c336802b6f35ca);
         
     
-        var popup_ce543ff41ddd4c8885c628ed4cf1b285 = L.popup({"maxWidth": 200});
+        var popup_90f964b6774a4b1a9c577d8d763f8e80 = L.popup({"maxWidth": 200});
 
         
-            var html_ae9fd91aa45c4c56a8e04e2440385ea6 = $(`<div id="html_ae9fd91aa45c4c56a8e04e2440385ea6" style="width: 100.0%; height: 100.0%;">1a Parada<br>Abastecimento na Loja Taquara</div>`)[0];
-            popup_ce543ff41ddd4c8885c628ed4cf1b285.setContent(html_ae9fd91aa45c4c56a8e04e2440385ea6);
+            var html_22027e11dec945c1a8d795468f2d6146 = $(`<div id="html_22027e11dec945c1a8d795468f2d6146" style="width: 100.0%; height: 100.0%;">2a Parada<br>Entrega da Loja Realengo</div>`)[0];
+            popup_90f964b6774a4b1a9c577d8d763f8e80.setContent(html_22027e11dec945c1a8d795468f2d6146);
         
 
-        marker_1b02909c14bc4b5882d3f0b081e4662f.bindPopup(popup_ce543ff41ddd4c8885c628ed4cf1b285)
+        marker_b2a57c945c914f7b9a965047a34033ee.bindPopup(popup_90f964b6774a4b1a9c577d8d763f8e80)
         ;
 
         
     
     
-            marker_1b02909c14bc4b5882d3f0b081e4662f.bindTooltip(
+            marker_b2a57c945c914f7b9a965047a34033ee.bindTooltip(
+                `<div>
+                     Av. de Santa Cruz, 4.773, Rio de Janeiro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9ccb6af3b1d84a57ba34d926dd1ae9d0 = L.marker(
+                [-22.883166449999997, -43.45161037693488],
+                {}
+            ).addTo(map_66c170a54deb4086b15bffa8a3dc1a42);
+        
+    
+            var beautify_icon_b133ed52411044e6bc30d74c0d0dc69e = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#BA3CC2", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 3, "textColor": "#000000"}
+            )
+            marker_9ccb6af3b1d84a57ba34d926dd1ae9d0.setIcon(beautify_icon_b133ed52411044e6bc30d74c0d0dc69e);
+        
+    
+        var popup_82eff6f5af414082a5a88fc9f6d6bd86 = L.popup({"maxWidth": 200});
+
+        
+            var html_8d672eec699b44f4a80088569bafc134 = $(`<div id="html_8d672eec699b44f4a80088569bafc134" style="width: 100.0%; height: 100.0%;">3a Parada<br>Entrega da Loja Realengo</div>`)[0];
+            popup_82eff6f5af414082a5a88fc9f6d6bd86.setContent(html_8d672eec699b44f4a80088569bafc134);
+        
+
+        marker_9ccb6af3b1d84a57ba34d926dd1ae9d0.bindPopup(popup_82eff6f5af414082a5a88fc9f6d6bd86)
+        ;
+
+        
+    
+    
+            marker_9ccb6af3b1d84a57ba34d926dd1ae9d0.bindTooltip(
+                `<div>
+                     Rua Francisco Real, 5, Rio de Janeiro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_56f42362ca974eb89e81fbd36c73e5c6 = L.marker(
+                [-22.9202807, -43.3792182],
+                {}
+            ).addTo(map_66c170a54deb4086b15bffa8a3dc1a42);
+        
+    
+            var beautify_icon_ec44767551ef4b26bcff1f7e13fb587e = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#BA3CC2", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 4, "textColor": "#000000"}
+            )
+            marker_56f42362ca974eb89e81fbd36c73e5c6.setIcon(beautify_icon_ec44767551ef4b26bcff1f7e13fb587e);
+        
+    
+        var popup_fce7de2f71d346ea83d08a6c15884f5a = L.popup({"maxWidth": 200});
+
+        
+            var html_53a3431a210749a1acd3c5e70ed3bf5e = $(`<div id="html_53a3431a210749a1acd3c5e70ed3bf5e" style="width: 100.0%; height: 100.0%;">4a Parada<br>Entrega da Loja Realengo</div>`)[0];
+            popup_fce7de2f71d346ea83d08a6c15884f5a.setContent(html_53a3431a210749a1acd3c5e70ed3bf5e);
+        
+
+        marker_56f42362ca974eb89e81fbd36c73e5c6.bindPopup(popup_fce7de2f71d346ea83d08a6c15884f5a)
+        ;
+
+        
+    
+    
+            marker_56f42362ca974eb89e81fbd36c73e5c6.bindTooltip(
                 `<div>
                      Rua Alberto Soares Sampaio, 127, Rio de Janeiro
                  </div>`,
@@ -129,32 +228,32 @@
             );
         
     
-            var marker_19e3ed4776a14ed993118c798d52a666 = L.marker(
+            var marker_91659aa47df446249f95562ed6376dc4 = L.marker(
                 [-23.02091390403176, -43.46957355236981],
                 {}
-            ).addTo(map_53677cf0ec984b089723173afbd4664c);
+            ).addTo(map_66c170a54deb4086b15bffa8a3dc1a42);
         
     
-            var beautify_icon_cea40677a95041c884bfd72b2b776b07 = new L.BeautifyIcon.icon(
-                {"backgroundColor": "#FFF", "borderColor": "#2ca02c", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 2, "textColor": "#000000"}
+            var beautify_icon_864884bb307d4dc39d248e26402dcfa1 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#2ca02c", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 5, "textColor": "#000000"}
             )
-            marker_19e3ed4776a14ed993118c798d52a666.setIcon(beautify_icon_cea40677a95041c884bfd72b2b776b07);
+            marker_91659aa47df446249f95562ed6376dc4.setIcon(beautify_icon_864884bb307d4dc39d248e26402dcfa1);
         
     
-        var popup_502f6f5f6bfa4d0e9222a6c026b747d5 = L.popup({"maxWidth": 200});
+        var popup_12fdf33fc9384075a69846bd46c560f4 = L.popup({"maxWidth": 200});
 
         
-            var html_9b3a50e34d3545f6898abb931f84413a = $(`<div id="html_9b3a50e34d3545f6898abb931f84413a" style="width: 100.0%; height: 100.0%;">2a Parada<br>Abastecimento na Loja Recreio</div>`)[0];
-            popup_502f6f5f6bfa4d0e9222a6c026b747d5.setContent(html_9b3a50e34d3545f6898abb931f84413a);
+            var html_617a2c483cbe47d2aab9fe20a9ae32f3 = $(`<div id="html_617a2c483cbe47d2aab9fe20a9ae32f3" style="width: 100.0%; height: 100.0%;">5a Parada<br>Abastecimento na Loja Recreio</div>`)[0];
+            popup_12fdf33fc9384075a69846bd46c560f4.setContent(html_617a2c483cbe47d2aab9fe20a9ae32f3);
         
 
-        marker_19e3ed4776a14ed993118c798d52a666.bindPopup(popup_502f6f5f6bfa4d0e9222a6c026b747d5)
+        marker_91659aa47df446249f95562ed6376dc4.bindPopup(popup_12fdf33fc9384075a69846bd46c560f4)
         ;
 
         
     
     
-            marker_19e3ed4776a14ed993118c798d52a666.bindTooltip(
+            marker_91659aa47df446249f95562ed6376dc4.bindTooltip(
                 `<div>
                      Rua Joaquim Moreira Neves, 131, Rio de Janeiro
                  </div>`,
@@ -162,32 +261,65 @@
             );
         
     
-            var marker_18a6c4c9b5c6424196a84bc8b9c47d07 = L.marker(
-                [-23.00296895, -43.31709619707924],
+            var marker_b92de622025142edb636b8bfdc85406c = L.marker(
+                [-23.013892, -43.4634254],
                 {}
-            ).addTo(map_53677cf0ec984b089723173afbd4664c);
+            ).addTo(map_66c170a54deb4086b15bffa8a3dc1a42);
         
     
-            var beautify_icon_9c2da6628dfd4665ad3d5f154285ff86 = new L.BeautifyIcon.icon(
-                {"backgroundColor": "#FFF", "borderColor": "#BA3CC2", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 3, "textColor": "#000000"}
+            var beautify_icon_32de6d2f41ac43bc94456389d1f04b66 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#BA3CC2", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 6, "textColor": "#000000"}
             )
-            marker_18a6c4c9b5c6424196a84bc8b9c47d07.setIcon(beautify_icon_9c2da6628dfd4665ad3d5f154285ff86);
+            marker_b92de622025142edb636b8bfdc85406c.setIcon(beautify_icon_32de6d2f41ac43bc94456389d1f04b66);
         
     
-        var popup_e221fb66c98141a4a4319f961502b263 = L.popup({"maxWidth": 200});
+        var popup_169c166f46fb4264a8b15b4b62bdbd74 = L.popup({"maxWidth": 200});
 
         
-            var html_16389c9f22e54a77beb6e2a26365b8d2 = $(`<div id="html_16389c9f22e54a77beb6e2a26365b8d2" style="width: 100.0%; height: 100.0%;">3a Parada<br>Entrega da Loja Recreio</div>`)[0];
-            popup_e221fb66c98141a4a4319f961502b263.setContent(html_16389c9f22e54a77beb6e2a26365b8d2);
+            var html_fe42958995b5473d9fbd071a89ee1e4e = $(`<div id="html_fe42958995b5473d9fbd071a89ee1e4e" style="width: 100.0%; height: 100.0%;">6a Parada<br>Entrega da Loja Recreio</div>`)[0];
+            popup_169c166f46fb4264a8b15b4b62bdbd74.setContent(html_fe42958995b5473d9fbd071a89ee1e4e);
         
 
-        marker_18a6c4c9b5c6424196a84bc8b9c47d07.bindPopup(popup_e221fb66c98141a4a4319f961502b263)
+        marker_b92de622025142edb636b8bfdc85406c.bindPopup(popup_169c166f46fb4264a8b15b4b62bdbd74)
         ;
 
         
     
     
-            marker_18a6c4c9b5c6424196a84bc8b9c47d07.bindTooltip(
+            marker_b92de622025142edb636b8bfdc85406c.bindTooltip(
+                `<div>
+                     Estrada Benvindo de Novaes, Rio de Janeiro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d60efa348a0b4f5ba7babc1e03a8e082 = L.marker(
+                [-23.00296895, -43.31709619707924],
+                {}
+            ).addTo(map_66c170a54deb4086b15bffa8a3dc1a42);
+        
+    
+            var beautify_icon_c4422109a12d46e4bc60cc7e7b81381d = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#BA3CC2", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 7, "textColor": "#000000"}
+            )
+            marker_d60efa348a0b4f5ba7babc1e03a8e082.setIcon(beautify_icon_c4422109a12d46e4bc60cc7e7b81381d);
+        
+    
+        var popup_635a5044fb79477987cef3adf28498d2 = L.popup({"maxWidth": 200});
+
+        
+            var html_932d91417d9e4e62a651460b0af29f46 = $(`<div id="html_932d91417d9e4e62a651460b0af29f46" style="width: 100.0%; height: 100.0%;">7a Parada<br>Entrega da Loja Recreio</div>`)[0];
+            popup_635a5044fb79477987cef3adf28498d2.setContent(html_932d91417d9e4e62a651460b0af29f46);
+        
+
+        marker_d60efa348a0b4f5ba7babc1e03a8e082.bindPopup(popup_635a5044fb79477987cef3adf28498d2)
+        ;
+
+        
+    
+    
+            marker_d60efa348a0b4f5ba7babc1e03a8e082.bindTooltip(
                 `<div>
                      Av. das Américas, 500, Rio de Janeiro
                  </div>`,
@@ -195,100 +327,67 @@
             );
         
     
-            var marker_97ee6014e70b45759a9d5d4e2a61ea80 = L.marker(
-                [-22.8533498, -43.23317028742236],
+            var marker_96ba6e1fd794485ea255df3f1f01310a = L.marker(
+                [-23.011684, -43.3183254],
                 {}
-            ).addTo(map_53677cf0ec984b089723173afbd4664c);
+            ).addTo(map_66c170a54deb4086b15bffa8a3dc1a42);
         
     
-            var beautify_icon_ef11e052398c4540b25072cc08b615bb = new L.BeautifyIcon.icon(
-                {"backgroundColor": "#FFF", "borderColor": "#BA3CC2", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 4, "textColor": "#000000"}
+            var beautify_icon_660fe7edf7b04b5380307e3207213705 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#BA3CC2", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 8, "textColor": "#000000"}
             )
-            marker_97ee6014e70b45759a9d5d4e2a61ea80.setIcon(beautify_icon_ef11e052398c4540b25072cc08b615bb);
+            marker_96ba6e1fd794485ea255df3f1f01310a.setIcon(beautify_icon_660fe7edf7b04b5380307e3207213705);
         
     
-        var popup_91b34312bce84a8d866cd4eaef5afddb = L.popup({"maxWidth": 200});
+        var popup_96297b07d88342fb99ef43d817add5dc = L.popup({"maxWidth": 200});
 
         
-            var html_4921ce3ca98549978f34358fe7a4edbb = $(`<div id="html_4921ce3ca98549978f34358fe7a4edbb" style="width: 100.0%; height: 100.0%;">4a Parada<br>Entrega da Loja Taquara</div>`)[0];
-            popup_91b34312bce84a8d866cd4eaef5afddb.setContent(html_4921ce3ca98549978f34358fe7a4edbb);
+            var html_ae5e0d6a03214afaa4661bbe8b10d1ac = $(`<div id="html_ae5e0d6a03214afaa4661bbe8b10d1ac" style="width: 100.0%; height: 100.0%;">8a Parada<br>Entrega da Loja Recreio</div>`)[0];
+            popup_96297b07d88342fb99ef43d817add5dc.setContent(html_ae5e0d6a03214afaa4661bbe8b10d1ac);
         
 
-        marker_97ee6014e70b45759a9d5d4e2a61ea80.bindPopup(popup_91b34312bce84a8d866cd4eaef5afddb)
+        marker_96ba6e1fd794485ea255df3f1f01310a.bindPopup(popup_96297b07d88342fb99ef43d817add5dc)
         ;
 
         
     
     
-            marker_97ee6014e70b45759a9d5d4e2a61ea80.bindTooltip(
+            marker_96ba6e1fd794485ea255df3f1f01310a.bindTooltip(
                 `<div>
-                     UFRJ, Rio de Janeiro, Brasil
+                     Av. Monsenhor Ascâneo, 6, Rio de Janeiro
                  </div>`,
                 {"sticky": true}
             );
         
     
-            var marker_d17a8d67679e436f838f9547726eb275 = L.marker(
-                [-22.8301327, -43.3221256],
+            var marker_4a371318f65a43d5bcdb5ae497df0b48 = L.marker(
+                [-22.9909687, -43.2324053],
                 {}
-            ).addTo(map_53677cf0ec984b089723173afbd4664c);
+            ).addTo(map_66c170a54deb4086b15bffa8a3dc1a42);
         
     
-            var beautify_icon_1b9216dd96f84c9ca47350a8c2e7270d = new L.BeautifyIcon.icon(
-                {"backgroundColor": "#FFF", "borderColor": "#BA3CC2", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 5, "textColor": "#000000"}
+            var beautify_icon_293a997226a84059955d9b084cc83eca = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "#BA3CC2", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 9, "textColor": "#000000"}
             )
-            marker_d17a8d67679e436f838f9547726eb275.setIcon(beautify_icon_1b9216dd96f84c9ca47350a8c2e7270d);
+            marker_4a371318f65a43d5bcdb5ae497df0b48.setIcon(beautify_icon_293a997226a84059955d9b084cc83eca);
         
     
-        var popup_ac9bfb592cdb495f9b5f7c1759de94c5 = L.popup({"maxWidth": 200});
+        var popup_cd4fbf080ad24e7f8a4afdb49dfddab2 = L.popup({"maxWidth": 200});
 
         
-            var html_6fd51b96c5e14cb4a3131a6ae48076ef = $(`<div id="html_6fd51b96c5e14cb4a3131a6ae48076ef" style="width: 100.0%; height: 100.0%;">5a Parada<br>Entrega da Loja Taquara</div>`)[0];
-            popup_ac9bfb592cdb495f9b5f7c1759de94c5.setContent(html_6fd51b96c5e14cb4a3131a6ae48076ef);
+            var html_ce43c2011f434d91a6812ef957ec61f9 = $(`<div id="html_ce43c2011f434d91a6812ef957ec61f9" style="width: 100.0%; height: 100.0%;">9a Parada<br>Entrega da Loja Recreio</div>`)[0];
+            popup_cd4fbf080ad24e7f8a4afdb49dfddab2.setContent(html_ce43c2011f434d91a6812ef957ec61f9);
         
 
-        marker_d17a8d67679e436f838f9547726eb275.bindPopup(popup_ac9bfb592cdb495f9b5f7c1759de94c5)
+        marker_4a371318f65a43d5bcdb5ae497df0b48.bindPopup(popup_cd4fbf080ad24e7f8a4afdb49dfddab2)
         ;
 
         
     
     
-            marker_d17a8d67679e436f838f9547726eb275.bindTooltip(
+            marker_4a371318f65a43d5bcdb5ae497df0b48.bindTooltip(
                 `<div>
-                     Rua Professor Sá Nunes, 65, Rio de Janeiro
-                 </div>`,
-                {"sticky": true}
-            );
-        
-    
-            var marker_b1626fdb04d64974b384b3cd66d2901c = L.marker(
-                [-22.9041956, -43.5458471],
-                {}
-            ).addTo(map_53677cf0ec984b089723173afbd4664c);
-        
-    
-            var beautify_icon_5578eaf14b7e466fb36269619a9f1f2d = new L.BeautifyIcon.icon(
-                {"backgroundColor": "#FFF", "borderColor": "#BA3CC2", "borderWidth": 3, "iconSize": [30, 30], "innerIconStyle": "margin_top:10;", "isAlphaNumericIcon": true, "spin": false, "text": 6, "textColor": "#000000"}
-            )
-            marker_b1626fdb04d64974b384b3cd66d2901c.setIcon(beautify_icon_5578eaf14b7e466fb36269619a9f1f2d);
-        
-    
-        var popup_b4c6d6a5064e4320990f4704923c3b11 = L.popup({"maxWidth": 200});
-
-        
-            var html_89161d0fe4284b76af3dc86da079a3df = $(`<div id="html_89161d0fe4284b76af3dc86da079a3df" style="width: 100.0%; height: 100.0%;">6a Parada<br>Entrega da Loja Taquara</div>`)[0];
-            popup_b4c6d6a5064e4320990f4704923c3b11.setContent(html_89161d0fe4284b76af3dc86da079a3df);
-        
-
-        marker_b1626fdb04d64974b384b3cd66d2901c.bindPopup(popup_b4c6d6a5064e4320990f4704923c3b11)
-        ;
-
-        
-    
-    
-            marker_b1626fdb04d64974b384b3cd66d2901c.bindTooltip(
-                `<div>
-                     Rua Mora, Campo Grande, Rio de Janeiro
+                     Avenida Niemeyer, Rio de Janeiro
                  </div>`,
                 {"sticky": true}
             );

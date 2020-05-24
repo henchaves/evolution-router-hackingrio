@@ -71,7 +71,7 @@ def get_address_by_id(id):
 #MODEL Function
 def run_model(addresses, shops_names, metric):
     time.sleep(1)
-    st.success('Carregando...')
+    st.success('Sucesso! Seu mapa está sendo gerado...')
     n_shops = len(set(shops_names))
     # time.sleep(1)
     # st.success('Carregando...')
@@ -85,9 +85,16 @@ def run_model(addresses, shops_names, metric):
     """, unsafe_allow_html=True)
 
     route_map = pipeline_model(addresses, shops_names, n_shops, metric)
+    #st.markdown(route_map.render(), unsafe_allow_html=True)
     filepath = os.path.realpath('map.html')
     route_map.save(filepath)
-    webbrowser.open('file://' + filepath)
+
+    st.markdown("""
+    <iframe src='http://127.0.0.1:5000/map' width=700 height=500></iframe>
+    """, unsafe_allow_html=True)
+    # st.markdown(route_map)
+    # st.markdown(route_map._repr_html_(), unsafe_allow_html=True)
+    #webbrowser.open('file://' + filepath)
 
 
 def main():
@@ -96,6 +103,7 @@ def main():
     choice = st.sidebar.selectbox("Menu", menu)
 
     if choice == 'Explicação':
+        st.image(['./img/002minerva_color_hor.png', './img/5eb0e201e2149.jpg'], width=200)
         #Insira a explicação do app aqui
         st.subheader("Evolution Router App")
         st.markdown("""
@@ -181,7 +189,7 @@ def main():
                 if st.button("Excluir todas as entregas"):
                     for endereco in entregas_enderecos:
                         delete_data_by_address(endereco)
-                    st.warning("Todos os endereços foram excluídos.")
+                    st.warning("Todos os endereços de entrega foram excluídos.")
    
 
         elif applist == 'Gerar Rota':
